@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMWAN Solutions | Enterprise B2B Digital Agency</title>
+    
+    <meta name="description" content="SAMWAN Solutions adalah agensi eksekutif B2B yang membangun infrastruktur digital, otomatisasi CRM, dan performance marketing untuk mendominasi pasar.">
+    <meta name="keywords" content="B2B Agency, Enterprise Web Design, CRM Automation, B2B Lead Generation, HubSpot Integration, Performance Marketing">
+    <meta name="author" content="SAMWAN Solutions">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samwansolutions.com/">
+    <meta property="og:title" content="SAMWAN Solutions | Build. Automate. Scale.">
+    <meta property="og:description" content="Mengeksekusi infrastruktur digital yang menghasilkan profit. Dari web premium hingga sistem CRM otomatis.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "SAMWAN Solutions",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
+      "description": "Agensi digital B2B premium yang berfokus pada desain web enterprise, otomatisasi CRM, dan paid advertising presisi.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jakarta",
+        "addressCountry": "ID"
+      },
+      "priceRange": "$$$",
+      "url": "https://samwansolutions.com"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-dark: #050811; 
+            --bg-darker: #02040a;
+            --accent-cyan: #00D4FF; 
+            --text-primary: #FFFFFF;
+            --text-secondary: #8B98B4;
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --font-display: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: transparent; 
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- WorldQuant Interactive Canvas --- */
+        #interactive-canvas {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            z-index: -2; background: var(--bg-dark); pointer-events: none; 
+        }
+
+        /* --- Scrollbar --- */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-darker); }
+        ::-webkit-scrollbar-thumb { background: #1C2541; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+
+        /* --- Preloader --- */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--bg-darker); z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            transition: opacity 1s cubic-bezier(0.8, 0, 0.2, 1), visibility 1s;
+        }
+        .preloader-logo {
+            font-family: var(--font-display); font-size: 3rem; font-weight: 800; letter-spacing: -1px;
+            opacity: 0; transform: translateY(20px);
+            animation: introReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+        }
+        .preloader-logo span { color: var(--accent-cyan); }
+        @keyframes introReveal { to { opacity: 1; transform: translateY(0); } }
+        .preloader-hidden { opacity: 0 !important; visibility: hidden !important; transform: scale(1.02); }
+
+        /* --- Typography & Global --- */
+        h1, h2, h3, h4, h5, h6, .logo { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.5px; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .glass { background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 16px; }
+        
+        .pill-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 16px; background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2); color: var(--accent-cyan);
+            border-radius: 50px; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px;
+        }
+
+        .btn-primary {
+            display: inline-flex; justify-content: center; align-items: center;
+            background: var(--text-primary); color: var(--bg-darker);
+            padding: 16px 32px; border-radius: 50px; font-weight: 600; font-family: var(--font-body);
+            transition: 0.3s ease; cursor: pointer; border: none; text-decoration: none;
+        }
+        .btn-primary:hover {
+            background: var(--accent-cyan); transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        /* --- Header --- */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 24px 0; transition: 0.4s; }
+        header.scrolled { background: rgba(2, 4, 10, 0.8); padding: 16px 0; border-bottom: 1px solid var(--glass-border); backdrop-filter: blur(10px); }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; text-decoration: none; color: white;}
+        .logo span { color: var(--accent-cyan); }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { font-size: 0.85rem; color: var(--text-secondary); transition: 0.3s; text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: var(--text-primary); }
+
+        /* --- Sections --- */
+        section { padding: 100px 0; position: relative; z-index: 1; }
+        .section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-inline: auto; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 16px; line-height: 1.2; }
+        .section-header p { color: var(--text-secondary); font-size: 1.1rem; }
+
+        /* --- Hero --- */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
+        .hero h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: 1; text-transform: uppercase; margin-bottom: 24px; letter-spacing: -2px; }
+        .hero p { max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; color: var(--text-secondary); }
+
+        /* --- Marquee --- */
+        .marquee { background: rgba(2, 4, 10, 0.5); backdrop-filter: blur(5px); padding: 24px 0; border-y: 1px solid var(--glass-border); overflow: hidden; display: flex; position: relative; z-index: 1;}
+        .marquee-content { display: flex; animation: scroll 30s linear infinite; gap: 80px; white-space: nowrap; }
+        .marquee span { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 2px; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* --- About --- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-content h2 { font-size: 2.5rem; margin-bottom: 24px; }
+        .about-content p { color: var(--text-secondary); margin-bottom: 24px; font-size: 1.05rem; }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 40px; }
+        .stat-item h4 { color: var(--accent-cyan); font-size: 2.5rem; margin-bottom: 8px; line-height: 1; }
+        .stat-item p { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; }
+
+        /* --- Services --- */
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .service-card { padding: 40px; transition: 0.4s; height: 100%; display: flex; flex-direction: column; }
+        .service-card:hover { border-color: rgba(0, 212, 255, 0.3); transform: translateY(-5px); background: rgba(255, 255, 255, 0.04); }
+        .svg-icon { width: 36px; height: 36px; margin-bottom: 24px; stroke: var(--accent-cyan); stroke-width: 1.5; fill: none; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+        .service-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
+        .feature-list { list-style: none; border-top: 1px solid var(--glass-border); padding-top: 24px; margin-top: auto; }
+        .feature-list li { display: flex; gap: 10px; margin-bottom: 12px; color: var(--text-secondary); font-size: 0.85rem; align-items: center; }
+        .feature-list li::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--accent-cyan); border-radius: 50%; }
+
+        /* --- Methodology --- */
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .process-step { padding: 32px; position: relative; }
+        .process-step::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--accent-cyan), transparent); opacity: 0.3; }
+        .step-number { font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; color: rgba(255,255,255,0.05); margin-bottom: 16px; line-height: 1; }
+        .process-step h3 { font-size: 1.25rem; margin-bottom: 12px; }
+        .process-step p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* --- Results (Case Studies) --- */
+        .results-wrapper { display: flex; flex-direction: column; gap: 60px; }
+        .case-card { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; padding: 60px; }
+        .case-card.reverse { grid-template-columns: 1fr 1.2fr; }
+        .case-card.reverse .case-content { order: 2; }
+        .case-card.reverse .case-visual { order: 1; }
+        .case-content h3 { font-size: 2rem; margin-bottom: 16px; line-height: 1.2; }
+        .case-content p { color: var(--text-secondary); margin-bottom: 24px; }
+        .case-metrics { display: flex; gap: 32px; border-top: 1px solid var(--glass-border); padding-top: 24px; margin-bottom: 32px; }
+        .metric-item span { display: block; font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--accent-cyan); line-height: 1; margin-bottom: 4px; }
+        .metric-item small { color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+        
+        /* Gambar Portofolio */
+        .case-visual { width: 100%; height: 100%; min-height: 400px; border-radius: 12px; position: relative; overflow: hidden; }
+        .case-visual.img-1 { background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000') center/cover; }
+        .case-visual.img-2 { background: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop') center/cover; }
+        .case-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(45deg, rgba(5,8,17,0.8), transparent); }
+
+        /* --- Testimonials --- */
+        .testimonials { background: rgba(5, 8, 17, 0.7); backdrop-filter: blur(10px); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        .testimonial-card { padding: 40px; position: relative; }
+        .quote-icon { position: absolute; top: 20px; right: 30px; font-size: 4rem; color: rgba(0,212,255,0.1); font-family: serif; line-height: 1; }
+        .testimonial-card p { font-size: 1.1rem; font-style: italic; color: var(--text-primary); margin-bottom: 32px; position: relative; z-index: 1; }
+        .client-info { display: flex; align-items: center; gap: 16px; }
+        .client-info div h4 { font-size: 1rem; margin-bottom: 4px; }
+        .client-info div span { color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* --- Lead Magnet --- */
+        .lead-magnet { padding: 120px 0; text-align: center; }
+        .magnet-box { padding: 60px 40px; max-width: 800px; margin: 0 auto; }
+        .magnet-box h2 { font-size: 2.2rem; margin-bottom: 16px; }
+        .magnet-box p { color: var(--text-secondary); margin-bottom: 32px; font-size: 1.1rem; }
+        .email-form { display: flex; gap: 12px; max-width: 500px; margin: 0 auto; }
+        .email-form input { flex: 1; padding: 16px 24px; border-radius: 50px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.4); color: white; outline: none; font-family: var(--font-body); transition: 0.3s; }
+        .email-form input:focus { border-color: var(--accent-cyan); background: rgba(0,0,0,0.6); }
+
+        /* --- Footer --- */
+        footer { padding: 80px 0 40px; border-top: 1px solid var(--glass-border); background: var(--bg-darker); position: relative; z-index: 10; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-col p { color: var(--text-secondary); font-size: 0.95rem; margin-top: 16px; max-width: 300px; }
+        .footer-col h4 { margin-bottom: 24px; color: var(--text-primary); font-size: 1rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: var(--text-secondary); font-size: 0.95rem; transition: 0.3s; text-decoration: none; }
+        .footer-col ul li a:hover { color: var(--accent-cyan); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* --- Utilities --- */
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .about-grid, .services-grid, .process-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .case-card, .case-card.reverse { grid-template-columns: 1fr; padding: 40px 24px; }
+            .case-card.reverse .case-content { order: 1; }
+            .case-card.reverse .case-visual { order: 2; height: 300px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3.5rem; }
+            .email-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="interactive-canvas" aria-hidden="true"></canvas>
+
+    <div id="preloader">
+        <div class="preloader-logo">SAMWAN<span>.</span></div>
+    </div>
+
+    <header id="header" role="banner">
+        <div class="container nav-inner">
+            <a href="#" class="logo" aria-label="SAMWAN Solutions Home">SAMWAN<span>.</span></a>
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="#about">About</a>
+                <a href="#services">Expertise</a>
+                <a href="#methodology">Process</a>
+                <a href="#results">Results</a>
+            </nav>
+            <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 12px 24px; font-size: 0.85rem;">Book Strategy Call</a>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="container reveal">
+                <span class="pill-badge">Premium B2B Executive Agency</span>
+                <h1 id="hero-heading">Build.<br>Automate.<br><span style="color: var(--accent-cyan);">Scale.</span></h1>
+                <p>Kami merancang infrastruktur digital presisi tinggi untuk bisnis B2B. Tinggalkan eksekusi amatir, saatnya mendominasi pasar dengan sistem otomatis yang terukur dan menghasilkan profit.</p>
+                <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px;">
+                    <a href="https://calendly.com" target="_blank" rel="noopener" class="btn-primary">Initiate Project</a>
+                    <a href="#results" class="btn-primary" style="background: transparent; border: 1px solid var(--glass-border); color: var(--text-primary);">View Case Studies</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-content">
+                <span>Enterprise Architecture</span> <span>Predictable ROI</span> <span>CRM Automation</span> <span>Executive Strategy</span> <span>Data-Driven Growth</span>
+                <span>Enterprise Architecture</span> <span>Predictable ROI</span> <span>CRM Automation</span> <span>Executive Strategy</span> <span>Data-Driven Growth</span>
+            </div>
+        </div>
+
+        <section id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content reveal">
+                        <span class="pill-badge">The Agency</span>
+                        <h2 id="about-heading">Bukan Sekadar Estetika, Kami Membangun Ekosistem Profit.</h2>
+                        <p>Di SAMWAN Solutions, kami memahami bahwa klien B2B tidak membutuhkan sekadar website cantik. Anda membutuhkan aset digital yang bekerja 24/7 untuk mengakuisisi klien bernilai tinggi.</p>
+                        <p>Kami menggabungkan rekayasa perangkat lunak kelas atas dengan psikologi penjualan B2B untuk menciptakan sistem yang mengubah prospek dingin menjadi kontrak yang ditandatangani.</p>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <h4>$12M+</h4>
+                                <p>Client Revenue Generated</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>98%</h4>
+                                <p>Client Retention Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass reveal" style="padding: 40px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 32px; border-bottom: 1px solid var(--glass-border); padding-bottom: 16px;">The SAMWAN Standard</h3>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px;">
+                            <li style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 212, 255, 0.1); display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.05rem; margin-bottom: 4px; color: var(--text-primary);">No Outsourcing</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Semua pekerjaan dieksekusi 100% oleh tim in-house ahli kami.</p>
+                                </div>
+                            </li>
+                            
+                            <li style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 212, 255, 0.1); display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.05rem; margin-bottom: 4px; color: var(--text-primary);">Data-Backed Decisions</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Setiap keputusan arsitektur & strategi dieksekusi berdasarkan analitik, bukan asumsi.</p>
+                                </div>
+                            </li>
+                            
+                            <li style="display: flex; gap: 16px; align-items: flex-start;">
+                                <div style="flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: rgba(0, 212, 255, 0.1); display: flex; align-items: center; justify-content: center; margin-top: 2px;">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1.05rem; margin-bottom: 4px; color: var(--text-primary);">Radical Transparency</h4>
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">Pelaporan ROI waktu nyata dan terukur, tanpa metrik vanity yang manipulatif.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" aria-labelledby="services-heading">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="pill-badge">Core Capabilities</span>
+                    <h2 id="services-heading">Infrastruktur Dominasi Digital</h2>
+                    <p>Solusi end-to-end yang dirancang khusus untuk memecahkan hambatan skalabilitas di perusahaan B2B.</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card glass reveal">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <h3>Premium Web Architecture</h3>
+                        <p>Desain UI/UX tingkat enterprise. Kami membangun storefront digital yang merepresentasikan wibawa dan menangkap kepercayaan decision maker B2B.</p>
+                        <ul class="feature-list">
+                            <li>Conversion-Optimized Layouts</li>
+                            <li>Lightning Fast Load Speeds (Next.js)</li>
+                            <li>Immersive Brand Experience</li>
+                        </ul>
+                    </article>
+                    <article class="service-card glass reveal" style="transition-delay: 0.1s;">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                        <h3>CRM & Systems Integration</h3>
+                        <p>Mengeliminasi kebocoran database. Kami menghubungkan situs web Anda langsung ke CRM (HubSpot/Salesforce) untuk tindak lanjut penjualan tanpa celah.</p>
+                        <ul class="feature-list">
+                            <li>Zero-Drop Lead Capture</li>
+                            <li>Automated Nurturing Email Flows</li>
+                            <li>Real-time Sales Dashboards</li>
+                        </ul>
+                    </article>
+                    <article class="service-card glass reveal" style="transition-delay: 0.2s;">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        <h3>Precision Performance Ads</h3>
+                        <p>Kampanye akuisisi agresif. Kami tidak mengejar klik murah; kami menargetkan klien bernilai tinggi melalui iklan Meta dan LinkedIn yang sangat terkalibrasi.</p>
+                        <ul class="feature-list">
+                            <li>C-Level Audience Targeting</li>
+                            <li>A/B Tested Creatives</li>
+                            <li>Transparent ROI Attribution</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="methodology" aria-labelledby="method-heading">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="pill-badge">The Framework</span>
+                    <h2 id="method-heading">Proses Eksekusi 4 Fase</h2>
+                    <p>Pendekatan sistematis kami menghilangkan tebakan dari penskalaan bisnis Anda.</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step reveal">
+                        <div class="step-number">01</div>
+                        <h3>Deep Audit & Strategy</h3>
+                        <p>Kami menganalisis tumpukan teknologi Anda saat ini, mengidentifikasi kebocoran konversi, dan memetakan arsitektur digital baru.</p>
+                    </div>
+                    <div class="process-step reveal" style="transition-delay: 0.1s;">
+                        <div class="step-number">02</div>
+                        <h3>Infrastructure Build</h3>
+                        <p>Pengembangan aset digital berkinerja tinggi. Dari UI/UX web premium hingga integrasi database backend.</p>
+                    </div>
+                    <div class="process-step reveal" style="transition-delay: 0.2s;">
+                        <div class="step-number">03</div>
+                        <h3>Automation Wiring</h3>
+                        <p>Menghubungkan platform. Memastikan setiap prospek secara otomatis diarahkan ke pipa CRM yang tepat tanpa intervensi manual.</p>
+                    </div>
+                    <div class="process-step reveal" style="transition-delay: 0.3s;">
+                        <div class="step-number">04</div>
+                        <h3>Traffic & Scale</h3>
+                        <p>Meluncurkan kampanye iklan berbayar yang ditargetkan hiper untuk membanjiri sistem baru Anda dengan prospek yang memenuhi syarat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" aria-labelledby="results-heading">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="pill-badge">Proven Impact</span>
+                    <h2 id="results-heading">Studi Kasus Eksekutif</h2>
+                </div>
+                <div class="results-wrapper">
+                    <article class="case-card glass reveal">
+                        <div class="case-content">
+                            <h3 class="font-display">Nexus Corp: Modernisasi B2B</h3>
+                            <p><strong>Tantangan:</strong> Perusahaan manufaktur B2B tradisional dengan siklus penjualan 6 bulan dan tingkat drop-off situs web 85%.</p>
+                            <p><strong>Solusi SAMWAN:</strong> Perombakan arsitektur web total, implementasi Salesforce, dan kampanye LinkedIn Ads yang menargetkan Manajer Pengadaan.</p>
+                            <div class="case-metrics">
+                                <div class="metric-item">
+                                    <span>4.5x</span>
+                                    <small>ROI dalam 6 Bulan</small>
+                                </div>
+                                <div class="metric-item">
+                                    <span>-50%</span>
+                                    <small>Cost per Lead (CPL)</small>
+                                </div>
+                            </div>
+                            <a href="#" class="btn-primary" style="padding: 12px 24px; font-size: 0.85rem;">Read Full Study</a>
+                        </div>
+                        <div class="case-visual img-1" aria-label="Dashboard analitik Nexus Corp"></div>
+                    </article>
+
+                    <article class="case-card glass reverse reveal">
+                        <div class="case-content">
+                            <h3 class="font-display">Apex Dental: Menskalakan Margin Tinggi</h3>
+                            <p><strong>Tantangan:</strong> Klinik gigi elit dengan layanan premium (Implan/Veneer) kehilangan prospek karena penjadwalan manual dan ketiadaan sistem follow-up.</p>
+                            <p><strong>Solusi SAMWAN:</strong> Web mewah berfokus konversi, integrasi funnel HubSpot untuk kualifikasi otomatis, dan Meta Ads menargetkan demografi kelas atas.</p>
+                            <div class="case-metrics">
+                                <div class="metric-item">
+                                    <span>+315%</span>
+                                    <small>High-Margin Inquiries</small>
+                                </div>
+                                <div class="metric-item">
+                                    <span>14 Jam</span>
+                                    <small>Waktu Tim Dihemat/Minggu</small>
+                                </div>
+                            </div>
+                            <a href="#" class="btn-primary" style="padding: 12px 24px; font-size: 0.85rem;">Read Full Study</a>
+                        </div>
+                        <div class="case-visual img-2" aria-label="Fasilitas Premium Apex Dental"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 id="testimonials-heading">Kepercayaan dari Eksekutif</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card glass reveal">
+                        <div class="quote-icon">"</div>
+                        <p>SAMWAN tidak hanya mendesain ulang situs kami; mereka merekayasa ulang seluruh mesin akuisisi kami. Sistem otomasi mereka adalah game-changer untuk tim sales kami.</p>
+                        <div class="client-info">
+                            <div>
+                                <h4>Jonathan Hart</h4>
+                                <span>CEO, Nexus Corporation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass reveal" style="transition-delay: 0.2s;">
+                        <div class="quote-icon">"</div>
+                        <p>Kami mencari partner yang memahami kemewahan dan kinerja. SAMWAN mewujudkannya. Alur pasien baru kami untuk perawatan premium tidak pernah sekuat ini.</p>
+                        <div class="client-info">
+                            <div>
+                                <h4>Dr. Sarah Jenkins</h4>
+                                <span>Founder, Apex Dental Arts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lead-magnet reveal" aria-labelledby="magnet-heading">
+            <div class="container">
+                <div class="magnet-box glass">
+                    <h2 id="magnet-heading">Audit Infrastruktur Digital Anda</h2>
+                    <p>Dapatkan "B2B Automation & Scale Checklist" eksklusif kami. Pelajari di mana bisnis Anda membocorkan prospek dan bagaimana memperbaikinya dalam 30 hari.</p>
+                    <form class="email-form" aria-label="Download Checklist Form">
+                        <input type="email" placeholder="Masukkan Work Email Anda" required aria-required="true" aria-label="Work Email Address">
+                        <button type="submit" class="btn-primary">Download Action Plan</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 20px; display: block;">SAMWAN<span>.</span></a>
+                    <p>Architecting digital dominance for high-level B2B companies through premium web design and automation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#about">About Agency</a></li>
+                        <li><a href="#services">Our Expertise</a></li>
+                        <li><a href="#results">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#">Enterprise Web Dev</a></li>
+                        <li><a href="#">HubSpot Integration</a></li>
+                        <li><a href="#">B2B Paid Media</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@samwansolutions.com">hello@samwansolutions.com</a></li>
+                        <li><a href="https://linkedin.com">LinkedIn Global</a></li>
+                        <li><a href="#">Schedule a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 SAMWAN Solutions. All rights reserved.</span>
+                <span>Crafted for Executives.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Preloader Logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => { preloader.classList.add('preloader-hidden'); }, 1200);
+        });
+
+        // 2. Header Blur & Resize on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // 3. Scroll Reveal Animation (Intersection Observer is better for SEO/Performance)
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Hanya animasi sekali saat muncul
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 4. WorldQuant Style Interactive Canvas Background
+        const canvas = document.getElementById('interactive-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles = [];
+
+        function resizeCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        let mouse = { x: null, y: null, radius: 180 };
+        window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.radius = Math.random() * 1.5 + 0.5;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.3)';
+                ctx.fill();
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx = -this.vx;
+                if (this.y < 0 || this.y > height) this.vy = -this.vy;
+                this.draw();
+            }
+        }
+
+        function initNetwork() {
+            particles = [];
+            // Optimize for performance
+            let particleCount = (width * height) / 15000; 
+            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        }
+
+        function animateNetwork() {
+            ctx.clearRect(0, 0, width, height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                for (let j = i; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 212, 255, ${0.1 - dist/1200})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+                if (mouse.x != null) {
+                    let dxMouse = particles[i].x - mouse.x;
+                    let dyMouse = particles[i].y - mouse.y;
+                    let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                    if (distMouse < mouse.radius) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 212, 255, ${0.4 - distMouse/450})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateNetwork);
+        }
+
+        window.addEventListener('resize', () => { resizeCanvas(); initNetwork(); });
+        resizeCanvas(); initNetwork(); animateNetwork();
+    </script>
+</body>
+</html>
